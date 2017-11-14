@@ -22,6 +22,7 @@ public class Account {
     private String shippingCity;
     private String email;
     private String sfid;
+    private Set<Account_rel__c> accr;
 
     public String getSfid() {
         return sfid;
@@ -30,7 +31,7 @@ public class Account {
     public void setSfid(String sfid) {
         this.sfid = sfid;
     }
-
+    @OneToMany(mappedBy="account")
     public Set<Account_rel__c> getAccr() {
         return accr;
     }
@@ -42,8 +43,6 @@ public class Account {
     @Column(name="createddate", insertable=true)
     @Temporal(TemporalType.TIMESTAMP)
 
-    @OneToMany(mappedBy="account")
-    private Set<Account_rel__c> accr;
     private Date createdDate;
 
     public Integer getId() {
