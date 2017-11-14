@@ -32,14 +32,14 @@ public class HerokuConnectApplication {
     }
 
 	@RequestMapping("/accounts")
-    public String contacts(Model model) {
+    public String accounts(Model model) {
         try {
             AccountRepository repo = getAccountRepository();
-            List<Account> contacts = null;
+            List<Account> accounts = null;
 
             if(repo != null) {
-                contacts = (List<Account>) repo.findAll();
-                model.addAttribute("contacts", contacts);
+                accounts = (List<Account>) repo.findAll();
+                model.addAttribute("accounts", accounts);
             }
             return "account";
         } catch (Exception e) {
