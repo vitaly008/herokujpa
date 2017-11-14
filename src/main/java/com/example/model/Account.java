@@ -16,10 +16,15 @@ public class Account {
         this.name=name;
 
     }
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    @Column(name="sfid")
     private String sfid;
-
+    @OneToMany(mappedBy = "account", targetEntity=Account_rel__c.class,
+            fetch=FetchType.EAGER)
     private Set<Account_rel__c> accr;
     public String getSfid() {
         return sfid;
@@ -27,16 +32,12 @@ public class Account {
     public void setSfid(String sfid) {
         this.sfid = sfid;
     }
-    @OneToMany(mappedBy = "account", targetEntity=Account_rel__c.class,
-            fetch=FetchType.EAGER)
     public Set<Account_rel__c> getAccr() {
         return accr;
     }
     public void setAccr(Set<Account_rel__c> accr) {
         this.accr = accr;
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }

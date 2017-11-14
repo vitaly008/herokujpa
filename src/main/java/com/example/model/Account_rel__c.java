@@ -18,19 +18,31 @@ public class Account_rel__c {
         this.name=name;
         this.acc=acc;
     }
+    @Column(name="sid")
+    private String sid;
+
+    public String getSid() {
+        return sid;
+    }
+
+    public void setSid(String sid) {
+        this.sid = sid;
+    }
+
     private String name;
+    @ManyToOne
+    @JoinColumn(name="sfid", nullable=false)
     private Account acc;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     public Integer getId() {
         return id;
     }
-
     public void setId(Integer id) {
         this.id = id;
     }
-
-
+    @Id
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     public void setAcc(Account acc) {
         this.acc = acc;
@@ -38,8 +50,6 @@ public class Account_rel__c {
     public String getName() {
         return name;
     }
-    @ManyToOne
-    @JoinColumn(name="sfid", nullable=false)
     public Account getAcc() {
         return acc;
     }
