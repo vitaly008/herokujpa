@@ -49,6 +49,7 @@ public class Account_rel__c {
     }
 
     @Id
+    @Column(name = "rel_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
