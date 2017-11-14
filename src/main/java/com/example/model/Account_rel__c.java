@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="Account_rel__c")
+@Table(name="Account_rel__c",schema="salesforce")
 public class Account_rel__c {
     public Account_rel__c(){
 
@@ -37,19 +37,21 @@ public class Account_rel__c {
     }
 
     @ManyToOne
-    @JoinColumn(name="account_id", nullable=false)
+    @JoinColumn(name="id", nullable=false)
     private Account account;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
-    public void setId(Integer id) {
+
+    public void setId(String id) {
         this.id = id;
     }
+
     @Id
     @Column(name = "arel_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
 
     public String getName() {
         return name;
@@ -60,14 +62,5 @@ public class Account_rel__c {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Account_rel__c{" +
-                "sid='" + sid + '\'' +
-                ", name='" + name + '\'' +
-                ", account=" + account +
-                ", id=" + id +
-                '}';
-    }
 }
 

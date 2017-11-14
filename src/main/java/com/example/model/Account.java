@@ -13,9 +13,9 @@ public class Account {
 
     }
     @Id
-    @Column(name = "account_id", nullable = false)
+    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
     private String name;
     @Column(name="sfid")
     private String sfid;
@@ -34,10 +34,10 @@ public class Account {
     public void setAccr(Set<Account_rel__c> accr) {
         this.accr = accr;
     }
-    public Integer getId() {
+    public String getId() {
         return id;
     }
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
     public void setName(String name) {
@@ -47,14 +47,5 @@ public class Account {
         return name;
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", sfid='" + sfid + '\'' +
-                ", accr=" + accr +
-                '}';
-    }
 }
 
