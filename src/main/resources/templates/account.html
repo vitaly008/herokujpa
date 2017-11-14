@@ -9,17 +9,16 @@
 <body>
 <!--<div style="margin-top: 20px;margin-left: 50px">-->
 <div class="container">
-<h3> Salesforce Contacts : </h3>
-<table>
-<th><td>Id</td><td>SFID</td><td>Name</td>
-<tr th:each="account : ${accounts}">
-    
-    <td th:text="${account.id}" ></td>
-    <td th:text="${account.sfid}" ></td>
-    <td th:text="${account.name}" ></td>
-
-</tr>
-</table>
+    <h3> Salesforce Contacts : </h3>
+    <table>
+        <th><td>Id</td><td>SFID</td><td>Name</td></th>
+        <tr th:each="account : ${accounts}">
+            <td></td>
+            <td th:text="${account.id}" ></td>
+            <td th:text="${account.sfid}" ></td>
+            <td th:text="${account.name}" ></td>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
