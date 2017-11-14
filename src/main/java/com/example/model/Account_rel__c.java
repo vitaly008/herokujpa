@@ -59,5 +59,15 @@ public class Account_rel__c {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Account_rel__c{" +
+                "sid='" + sid + '\'' +
+                ", name='" + name + '\'' +
+                ", account=" + account +
+                ", id=" + id +
+                '}';
+    }
 }
 

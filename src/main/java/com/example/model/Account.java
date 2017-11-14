@@ -47,11 +47,14 @@ public class Account {
         return name;
     }
 
-
-
-
-
-
-
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sfid='" + sfid + '\'' +
+                ", accr=" + accr +
+                '}';
+    }
 }
 
