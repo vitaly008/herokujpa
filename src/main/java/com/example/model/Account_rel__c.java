@@ -38,7 +38,7 @@ public class Account_rel__c {
     public String getName() {
         return name;
     }
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="sfid", nullable=false)
     public Account getAcc() {
         return acc;

@@ -41,7 +41,7 @@ public class Account {
     public void setSfid(String sfid) {
         this.sfid = sfid;
     }
-    @OneToMany(targetEntity = Account_rel__c.class, mappedBy = "account", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany( mappedBy = "account",fetch=FetchType.LAZY)
     public Set<Account_rel__c> getAccr() {
         return accr;
     }
