@@ -1,24 +1,19 @@
 package com.example;
 
-import com.example.dao.ContactRepository;
-import com.example.dao.ContactRepository;
+import com.example.dao.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.*;
 import java.sql.*;
-import java.io.*;
 import java.util.*;
 import java.net.URISyntaxException;
 import java.net.URI;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.example.dao.EmployeeRepository;
-import com.example.model.Employee;
 import org.springframework.context.annotation.ImportResource;
-import com.example.model.Contact;
+import com.example.model.Account;
 
 
 @Controller
@@ -26,50 +21,32 @@ import com.example.model.Contact;
 @EnableAutoConfiguration
 @ImportResource("classpath:applicationContext.xml")
 public class HerokuConnectApplication {
-    @Autowired
-    EmployeeRepository employeeRepository;
+
 
     @Autowired
-    ContactRepository contactRepository;
+    AccountRepository accountRepository;
 
     @RequestMapping("/")
     public String home(Model model) {
         return "home";
     }
 
-	@RequestMapping("/contacts")
+	@RequestMapping("/accounts")
     public String contacts(Model model) {
         try {
-            ContactRepository repo = getContactRepository();
-            List<Contact> contacts = null;
+            AccountRepository repo = getAccountRepository();
+            List<Account> contacts = null;
 
             if(repo != null) {
-                contacts = (List<Contact>) repo.findAll();
+                contacts = (List<Account>) repo.findAll();
                 model.addAttribute("contacts", contacts);
             }
-            return "contact";
+            return "account";
         } catch (Exception e) {
-            model.addAttribute("contacts", new LinkedList());
+            model.addAttribute("accounts", new LinkedList());
             e.printStackTrace();
         }
-        return "contact";
-    }
-
-    @RequestMapping("/employee")
-    public String employees(Model model) {
-        try {
-            EmployeeRepository repo = getEmployeeDao();
-            List<Employee> employees = null;
-            if(repo != null) {
-                employees = (List<Employee>) repo.findAll();
-                model.addAttribute("employees", employees);
-            }
-
-        } catch (Exception e) {
-            model.addAttribute("employees", new LinkedList());
-            e.printStackTrace();
-        }
-        return "employee";
+        return "account";
     }
 
     private static Connection getConnection() throws URISyntaxException, SQLException {
@@ -84,14 +61,11 @@ public class HerokuConnectApplication {
 		return DriverManager.getConnection(dbUrl, username, password);
 	}
 
-    private EmployeeRepository getEmployeeDao() {
- ;
-        return employeeRepository;
-    }
 
-    private ContactRepository getContactRepository() {
 
-        return contactRepository;
+    private AccountRepository getAccountRepository() {
+
+        return accountRepository;
     }
 
 	public static void main(String[] args) {
