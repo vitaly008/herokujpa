@@ -20,7 +20,8 @@ public class Account_rel__c {
     }
     private String name;
     private Account acc;
-
+    @Id
+    @GeneratedValue
     public Integer getId() {
         return id;
     }
@@ -29,8 +30,7 @@ public class Account_rel__c {
         this.id = id;
     }
 
-    @Id
-    @GeneratedValue
+
     private Integer id;
     public void setAcc(Account acc) {
         this.acc = acc;

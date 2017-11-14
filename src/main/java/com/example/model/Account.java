@@ -17,8 +17,6 @@ public class Account {
         this.shippingCity=shippingCity;
         this.phone=phone;
     }
-    @Id
-    @GeneratedValue
     private Integer id;
     private String name;
     private String shippingCity;
@@ -56,7 +54,8 @@ public class Account {
     @Temporal(TemporalType.TIMESTAMP)
 
     private Date createdDate;
-
+    @Id
+    @GeneratedValue
     public Integer getId() {
         return id;
     }
