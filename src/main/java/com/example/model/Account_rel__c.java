@@ -21,7 +21,7 @@ public class Account_rel__c {
     private String name;
     private Account acc;
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
@@ -38,7 +38,7 @@ public class Account_rel__c {
     public String getName() {
         return name;
     }
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name="sfid", nullable=false)
     public Account getAcc() {
         return acc;
