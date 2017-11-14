@@ -6,22 +6,34 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
-/**
- * Person entity
- *
- * @author Rajdeep Dua
- */
 @Entity
 @Table(name = "account", schema="salesforce")//ame="document_collection", schema="document"
 public class Account {
+    public Account(){
 
+    }
+    public Account(String name,String shippingCity,String phone){
+        this.name=name;
+        this.shippingCity=shippingCity;
+        this.phone=phone;
+    }
     @Id
     @GeneratedValue
     private Integer id;
     private String name;
     private String shippingCity;
-    private String email;
+    private String phone;
+
+    public String getPhone() {
+        return phone;
+    }
+
     private String sfid;
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     private Set<Account_rel__c> accr;
 
     public String getSfid() {
@@ -61,10 +73,6 @@ public class Account {
         this.shippingCity = shippingCity;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getName() {
         return name;
     }
@@ -73,9 +81,7 @@ public class Account {
         return shippingCity;
     }
 
-    public String getEmail() {
-        return email;
-    }
+
 
 
 
