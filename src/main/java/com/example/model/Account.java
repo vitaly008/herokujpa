@@ -17,7 +17,7 @@ public class Account {
 
     }
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "account_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;

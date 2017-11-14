@@ -41,7 +41,7 @@ public class Account_rel__c {
         this.id = id;
     }
     @Id
-    @Column(name = "id", nullable = false)
+    @Column(name = "arel_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     public void setAcc(Account acc) {
