@@ -31,7 +31,7 @@ public class Account_rel__c {
 
     private String name;
     @ManyToOne
-    @JoinColumn(name="sfid", nullable=false)
+    @JoinColumn(name="account_id", nullable=false)
     private Account acc;
 
     public Integer getId() {
