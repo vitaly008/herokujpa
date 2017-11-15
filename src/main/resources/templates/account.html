@@ -17,8 +17,10 @@
             <td th:text="${account.id}" ></td>
             <td th:text="${account.sfid}" ></td>
             <td th:text="${account.name}" ></td>
-            <td th:each="rel : ${accounts.accr}">
-                <td th:text="${account.name}" ></td>
+            <td>
+				<span th:each="rel : ${account.accr}">
+					<span th:text="${rel.name}"/>
+				</span>
             </td>
         </tr>
 
