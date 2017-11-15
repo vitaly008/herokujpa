@@ -3,15 +3,15 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="Account_rel__c",schema="salesforce")
-public class Account_rel__c implements java.io.Serializable {
-    public Account_rel__c(){
+@Table(name="AccountRel",schema="salesforce")
+public class AccountRel implements java.io.Serializable {
+    public AccountRel(){
 
     }
-    public Account_rel__c(String name){
+    public AccountRel(String name){
         this.name=name;
     }
-    public Account_rel__c(String name,Account account){
+    public AccountRel(String name,Account account){
         this.name=name;
         this.account=account;
     }

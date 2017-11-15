@@ -18,18 +18,18 @@ public class Account implements java.io.Serializable {
     private String name;
     @Column(name="sfid")
     private String sfid;
-    @OneToMany(mappedBy = "account", targetEntity=Account_rel__c.class)
-    private Set<Account_rel__c> accr;
+    @OneToMany(mappedBy = "account", targetEntity=AccountRel.class)
+    private Set<AccountRel> accr;
     public String getSfid() {
         return sfid;
     }
     public void setSfid(String sfid) {
         this.sfid = sfid;
     }
-    public Set<Account_rel__c> getAccr() {
+    public Set<AccountRel> getAccr() {
         return accr;
     }
-    public void setAccr(Set<Account_rel__c> accr) {
+    public void setAccr(Set<AccountRel> accr) {
         this.accr = accr;
     }
     public String getId() {
