@@ -11,6 +11,7 @@ import com.example.dao.AccountRepository;
 import com.example.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,5 +40,7 @@ public class AccountController {
         return DriverManager.getConnection(dbUrl, username, password);
     }
 
-
+    public static void main(String[] args) {
+        SpringApplication.run(AccountController.class, args);
+    }
 }
