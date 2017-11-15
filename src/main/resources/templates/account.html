@@ -13,8 +13,8 @@
     <table>
     <span th:each="account: ${accounts}">
         <td>
-            <tr th:each="rel: ${account.accr}">
-                <p th:text="${rel.getName}"></p>
+            <tr th:each="rel: ${account.account__c}">
+                <p th:text="${rel.name}"></p>
             </tr>
         </td>
     </span>
