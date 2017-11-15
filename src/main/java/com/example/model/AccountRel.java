@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="AccountRel",schema="salesforce")
+@Table(name="Account_rel__c",schema="salesforce")
 public class AccountRel implements java.io.Serializable {
     public AccountRel(){
 
