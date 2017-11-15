@@ -4,7 +4,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "account",schema="salesforce")
-public class Account {
+public class Account implements java.io.Serializable {
     public Account(){
 
     }
@@ -13,7 +13,6 @@ public class Account {
 
     }
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String name;

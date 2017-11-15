@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Account_rel__c",schema="salesforce")
-public class Account_rel__c {
+public class Account_rel__c implements java.io.Serializable {
     public Account_rel__c(){
 
     }
@@ -15,16 +15,19 @@ public class Account_rel__c {
         this.name=name;
         this.account=account;
     }
-    @Column(name="sid")
-    private String sid;
 
-    public String getSid() {
-        return sid;
+    public String getSfid() {
+        return sfid;
     }
 
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setSfid(String sfid) {
+        this.sfid = sfid;
     }
+
+    @Column(name="sfid")
+    private String sfid;
+
+
 
     private String name;
 
@@ -37,7 +40,7 @@ public class Account_rel__c {
     }
 
     @ManyToOne
-    @JoinColumn(name="id", nullable=false)
+    @JoinColumn(name="Account_c", nullable=false)
     private Account account;
 
     public String getId() {
@@ -49,7 +52,6 @@ public class Account_rel__c {
     }
 
     @Id
-    @Column(name = "a_re_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
