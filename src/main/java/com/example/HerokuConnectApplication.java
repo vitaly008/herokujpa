@@ -1,74 +1,41 @@
-package com.example;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Set;
 
 import com.example.dao.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.stereotype.*;
-import java.sql.*;
-import java.util.*;
-import java.net.URISyntaxException;
-import java.net.URI;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.context.annotation.ImportResource;
 import com.example.model.Account;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@SpringBootApplication
-@EnableAutoConfiguration
-@ImportResource("classpath:applicationContext.xml")
-public class HerokuConnectApplication {
-
-
+@RestController
+public class AccountController {
     @Autowired
-    AccountRepository accountRepository;
+    AccountRepository repository;
 
-    @RequestMapping("/")
-    public String home(Model model) {
-        return "home";
+    @RequestMapping(path = "/accounts",method = RequestMethod.GET)
+    public Iterable<Account> getAccounts() {
+        Iterable<Account> accounts = repository.findAll();
+        return accounts;
     }
 
-	@RequestMapping("/accounts")
-    public String accounts(Model model) {
-        try {
-            AccountRepository repo = getAccountRepository();
-            List<Account> accounts = null;
-
-            if(repo != null) {
-                accounts = (List<Account>) repo.findAll();
-                model.addAttribute("accounts", accounts);
-            }
-            return "account";
-        } catch (Exception e) {
-            model.addAttribute("accounts", new LinkedList());
-            e.printStackTrace();
-        }
-        return "account";
-    }
 
     private static Connection getConnection() throws URISyntaxException, SQLException {
-		URI dbUri = new URI(System.getenv("DATABASE_URL"));
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
-		String username = dbUri.getUserInfo().split(":")[0];
-		String password = dbUri.getUserInfo().split(":")[1];
-		String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':'
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':'
                 + dbUri.getPort() + dbUri.getPath()
                 + "?sslmode=require";
 
-		return DriverManager.getConnection(dbUrl, username, password);
-	}
-
-
-
-    private AccountRepository getAccountRepository() {
-
-        return accountRepository;
+        return DriverManager.getConnection(dbUrl, username, password);
     }
 
-	public static void main(String[] args) {
-		SpringApplication.run(HerokuConnectApplication.class, args);
-	}
+
 }
