@@ -40,7 +40,7 @@ public class Account_rel__c implements java.io.Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name="Account_c", nullable=false)
+    @JoinColumn(name="Account__c", nullable=false)
     private Account account;
 
     public String getId() {
