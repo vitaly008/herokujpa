@@ -18,8 +18,7 @@ public class Account implements java.io.Serializable {
     private String name;
     @Column(name="sfid")
     private String sfid;
-    @OneToMany(mappedBy = "account", targetEntity=Account_rel__c.class,
-            fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "account", targetEntity=Account_rel__c.class)
     private Set<Account_rel__c> accr;
     public String getSfid() {
         return sfid;
