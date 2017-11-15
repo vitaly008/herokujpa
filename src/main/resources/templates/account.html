@@ -11,13 +11,13 @@
 <div class="container">
     <h3> Salesforce Accounts : </h3>
     <table>
-    <th:block th:each="account: ${accounts}">
+    <span th:each="account: ${accounts}">
         <td>
             <tr th:each="rel: ${account.accr}">
                 <p th:text="${rel.name}"></p>
             </tr>
         <td>
-    </th:block>
+    </span>
     </table>
 </div>
 </body>
