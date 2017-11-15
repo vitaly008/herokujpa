@@ -3,7 +3,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="Account_rel__c")
+@Table(name="Account_rel__c",schema="salesforce")
 public class Account_rel__c {
     public Account_rel__c(){
 

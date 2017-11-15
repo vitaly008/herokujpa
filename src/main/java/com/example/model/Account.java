@@ -3,7 +3,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "account")
+@Table(name = "account",schema="salesforce")
 public class Account {
     public Account(){
 
