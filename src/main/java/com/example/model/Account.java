@@ -16,19 +16,16 @@ public class Account implements java.io.Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String name;
-    @Column(name="fid")
-    private String fid;
+    @Column(name="sfid")
+    private String sfid;
     @OneToMany(mappedBy = "account", targetEntity=Account_rel__c.class)
     private Set<Account_rel__c> accr;
-
-    public String getFid() {
-        return fid;
+    public String getSfid() {
+        return sfid;
     }
-
-    public void setFid(String fid) {
-        this.fid = fid;
+    public void setSfid(String sfid) {
+        this.sfid = sfid;
     }
-
     public Set<Account_rel__c> getAccr() {
         return accr;
     }
