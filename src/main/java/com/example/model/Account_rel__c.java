@@ -40,9 +40,18 @@ public class Account_rel__c {
     @JoinColumn(name="id", nullable=false)
     private Account account;
 
- 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 
+    @Id
+    @Column(name = "a_re_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String id;
 
     public String getName() {
         return name;
