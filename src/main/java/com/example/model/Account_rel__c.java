@@ -16,12 +16,13 @@ public class Account_rel__c implements java.io.Serializable {
         this.account=account;
     }
 
+
     public String getSid() {
         return sid;
     }
 
-    public void setSid(String sfid) {
-        this.sid = sfid;
+    public void setSid(String sid) {
+        this.sid = sid;
     }
 
     @Column(name="sid")
