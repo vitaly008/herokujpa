@@ -11,7 +11,7 @@ public class AccountRel implements java.io.Serializable {
     public AccountRel(String name){
         this.name=name;
     }
-   
+
 
 
     public String getSfid() {
