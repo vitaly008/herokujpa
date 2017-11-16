@@ -11,10 +11,7 @@ public class AccountRel implements java.io.Serializable {
     public AccountRel(String name){
         this.name=name;
     }
-    public AccountRel(String name,Account account){
-        this.name=name;
-        this.account=account;
-    }
+   
 
 
     public String getSfid() {
@@ -32,30 +29,21 @@ public class AccountRel implements java.io.Serializable {
 
     private String name;
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
-
-    @ManyToOne
-    @JoinColumn(name="account__c", nullable=false)
-    private Account account;
 
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public Integer getId() {
+
+    public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private String id;
 
     public String getName() {
         return name;
