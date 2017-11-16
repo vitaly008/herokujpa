@@ -1,4 +1,6 @@
 package com.example.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 
@@ -39,7 +41,7 @@ public class AccountRel implements java.io.Serializable {
     public void setAccount(Account account) {
         this.account = account;
     }
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="Account__c",referencedColumnName="sfid")
     private Account account;
