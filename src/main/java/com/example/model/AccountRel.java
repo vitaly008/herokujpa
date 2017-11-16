@@ -41,20 +41,21 @@ public class AccountRel implements java.io.Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name="Account__c", nullable=false)
+    @JoinColumn(name="account__c", nullable=false)
     private Account account;
 
-    public String getId() {
-        return id;
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public Integer getId() {
+        return id;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private Integer id;
 
     public String getName() {
         return name;
