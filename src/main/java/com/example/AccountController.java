@@ -7,8 +7,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Set;
 
+import com.example.dao.AccountRRepository;
 import com.example.dao.AccountRepository;
 import com.example.model.Account;
+import com.example.model.AccountRel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.boot.SpringApplication;
@@ -28,11 +30,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccountController {
     @Autowired
-    AccountRepository repository;
+    AccountRRepository repository;
 
     @RequestMapping(path = "/accounts",method = RequestMethod.GET)
-    public Iterable<Account> getAccounts() {
-        Iterable<Account> accounts = repository.findAll();
+    public Iterable<AccountRel> getAccounts() {
+        Iterable<AccountRel> accounts = repository.findAll();
         return accounts;
     }
 
