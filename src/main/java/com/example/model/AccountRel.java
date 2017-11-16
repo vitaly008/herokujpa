@@ -25,7 +25,7 @@ public class AccountRel implements java.io.Serializable {
         this.sid = sid;
     }
 
-    @Column(name="sfid")
+    @Column(name="sid")
     private String sid;
 
 
