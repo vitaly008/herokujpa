@@ -17,16 +17,16 @@ public class AccountRel implements java.io.Serializable {
     }
 
 
-    public String getSid() {
-        return sid;
+    public String getSfid() {
+        return sfid;
     }
 
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setSfid(String sfid) {
+        this.sfid = sfid;
     }
 
-    @Column(name="sid")
-    private String sid;
+    @Column(name="sfid")
+    private String sfid;
 
 
 
